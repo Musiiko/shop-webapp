@@ -7,9 +7,7 @@ import org.example.service.UpdateService;
 
 import java.io.IOException;
 
-//@WebServlet(name = "addProductToOrder", value = "/addProductToOrder")
-//@WebServlet("/addProductToOrder")
-@WebServlet(name = "testServlet")
+@WebServlet(name = "addProductToOrder", value = "/addProductToOrder")
 public class addProductToOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
