@@ -1,0 +1,20 @@
+
+
+<ul>
+    <li style="display: inline; border-style: solid; padding: 5pt;"><a href="index.jsp">Index</a></li>
+    <br>
+    <br>
+    <br>
+    <li style="display: inline; border-style: solid; padding: 5pt;"><a href="insertProduct">insert product</a></li>
+    <li style="display: inline; border-style: solid; padding: 5pt;"><a href="insertOrder">insert order</a></li>
+    <li style="display: inline; border-style: solid; padding: 5pt;"><a href="addProductToOrder">add product to order</a></li>
+    <li style="display: inline; border-style: solid; padding: 5pt;"><a href="deleteInfoOrder">delete info from order</a></li>
+    <br>
+    <br>
+    <br>
+    <li style="display: inline; border-style: solid; padding: 5pt;"><a href="showOrderByNumber">show order by number</a></li>
+    <li style="display: inline; border-style: solid; padding: 5pt;"><a href="showOrdersBySumAndCount">show orders by sum and count</a></li>
+    <li style="display: inline; border-style: solid; padding: 5pt;"><a href="showOrdersByProductName">show orders by product name</a></li>
+    <li style="display: inline; border-style: solid; padding: 5pt;"><a href="showOrdersWithoutProductAndCurrentDate">show orders without product and current date</a></li>
+
+</ul>
