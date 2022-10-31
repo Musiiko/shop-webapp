@@ -8,7 +8,6 @@ import java.util.Objects;
 public class DbConnector {
     private static Connection connection;
     public static final String URL = "jdbc:mysql://localhost:3306/Shop?serverTimezone=Europe/Kiev";
-    //public static final String URL = "jdbc:mysql://localhost:8080/Shop?serverTimezone=Europe/Kiev";
     public static final String USER = "root";
     public static final String PASSWORD = "musiiko";
 

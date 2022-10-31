@@ -11,20 +11,22 @@
     Products:<br>
     <table style="border: 1px solid white">
         <colgroup>
-            <col span="3" style="background-color: #96b9d4" />
+            <col span="4" style="background-color: #96b9d4" />
         </colgroup>
         <thead>
         <tr>
             <th>Name</th>
             <th>Price</th>
             <th>Description</th>
+            <th>Count</th>
         </tr>
         </thead>
-        <c:forEach var="product" items="${order.products}">
+        <c:forEach var="productInOrder" items="${order.productsInOrder}">
             <tr>
-                <td><c:out value="${product.name}"/></td>
-                <td><c:out value="${product.price}"/></td>
-                <td><c:out value="${product.description}"/></td>
+                <td><c:out value="${productInOrder.product.name}"/></td>
+                <td><c:out value="${productInOrder.product.price}"/></td>
+                <td><c:out value="${productInOrder.product.description}"/></td>
+                <td><c:out value="${productInOrder.count}"/></td>
             </tr>
         </c:forEach>
     </table>

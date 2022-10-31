@@ -9,7 +9,7 @@ import org.example.service.SelectService;
 import java.io.IOException;
 
 @WebServlet(name = "showOrderByNumber", value = "/showOrderByNumber")
-public class showOrderByNumberServlet extends HttpServlet {
+public class ShowOrderByNumberServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/jsp/showOrderByNumber.jsp").forward(request, response);

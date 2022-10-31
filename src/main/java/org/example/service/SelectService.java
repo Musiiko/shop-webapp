@@ -3,6 +3,7 @@ package org.example.service;
 import org.example.DbConnector;
 import org.example.domain.Order;
 import org.example.domain.Product;
+import org.example.domain.ProductInOrder;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -30,16 +31,16 @@ public class SelectService {
                 order = new Order(orderId, orderNumber, date.toLocalDate());
             }
             if(order == null) return null;
-            List<Product> products = findProductsByOrderId(order.getId());
-            order.setProducts(products);
+            List<ProductInOrder> products = findProductsByOrderId(order.getId());
+            order.setProductsInOrder(products);
         }
 
         return order;
 
     }
 
-    private List<Product> findProductsByOrderId(int orderId) throws SQLException {
-        List<Product> products = new ArrayList<>();
+    private List<ProductInOrder> findProductsByOrderId(int orderId) throws SQLException {
+        List<ProductInOrder> products = new ArrayList<>();
 
         Connection connection = DbConnector.getConnection();
 
@@ -58,10 +59,11 @@ public class SelectService {
                 String name = resultSet.getString("name");
                 String description = resultSet.getString("description");
                 float price = resultSet.getFloat("price");
+                int count_products = resultSet.getInt("count_products");
 
                 Product product = new Product(productId, price, name, description);
-
-                products.add(product);
+                ProductInOrder productInOrder = new ProductInOrder(product, count_products);
+                products.add(productInOrder);
             }
         }
         return products;
@@ -94,11 +96,11 @@ public class SelectService {
                 String orderNumber = resultSet.getString("order_number");
                 Date date = resultSet.getDate("order_date");
 
-                List<Product> products = findProductsByOrderId(orderId);
+                List<ProductInOrder> products = findProductsByOrderId(orderId);
 
                 Order order = new Order(orderId, orderNumber, date.toLocalDate());
 
-                order.setProducts(products);
+                order.setProductsInOrder(products);
 
                 orders.add(order);
 
@@ -132,11 +134,11 @@ public class SelectService {
                 String orderNumber = resultSet.getString("order_number");
                 Date date = resultSet.getDate("order_date");
 
-                List<Product> products = findProductsByOrderId(orderId);
+                List<ProductInOrder> products = findProductsByOrderId(orderId);
 
                 Order order = new Order(orderId, orderNumber, date.toLocalDate());
 
-                order.setProducts(products);
+                order.setProductsInOrder(products);
 
                 orders.add(order);
             }
@@ -175,11 +177,11 @@ public class SelectService {
                 String orderNumber = resultSet.getString("order_number");
                 Date date = resultSet.getDate("order_date");
 
-                List<Product> products = findProductsByOrderId(orderId);
+                List<ProductInOrder> products = findProductsByOrderId(orderId);
 
                 Order order = new Order(orderId, orderNumber, date.toLocalDate());
 
-                order.setProducts(products);
+                order.setProductsInOrder(products);
 
                 orders.add(order);
 

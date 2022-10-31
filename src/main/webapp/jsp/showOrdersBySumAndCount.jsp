@@ -10,7 +10,7 @@
   <label>Sum:
     <input type="text" name="sum" placeholder="Sum">
   </label><br>
-  <label>Count:
+  <label>Count of products:
     <input type="text" name="count" placeholder="Count">
   </label><br>
   <input type="submit" value="Search">

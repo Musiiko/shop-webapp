@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 @WebServlet(name = "insertOrder", value = "/insertOrder")
-public class insertOrderServlet extends HttpServlet {
+public class InsertOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/jsp/insertOrder.jsp").forward(request, response);

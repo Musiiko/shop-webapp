@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "showOrdersByProductName", value = "/showOrdersByProductName")
-public class showOrdersByProductNameServlet extends HttpServlet {
+public class ShowOrdersByProductNameServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/jsp/showOrdersByProductName.jsp").forward(request, response);

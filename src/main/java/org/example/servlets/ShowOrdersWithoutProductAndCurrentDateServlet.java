@@ -7,24 +7,24 @@ import org.example.domain.Order;
 import org.example.service.SelectService;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
-@WebServlet(name = "showOrdersBySumAndCount", value = "/showOrdersBySumAndCount")
-public class showOrdersBySumAndCountServlet extends HttpServlet {
+@WebServlet(name = "showOrdersWithoutProductAndCurrentDate", value = "/showOrdersWithoutProductAndCurrentDate")
+public class ShowOrdersWithoutProductAndCurrentDateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/jsp/showOrdersBySumAndCount.jsp").forward(request, response);
+        request.getRequestDispatcher("/jsp/showOrdersWithoutProductAndCurrentDate.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         SelectService selectService = new SelectService();
-        float sum = Float.parseFloat(request.getParameter("sum"));
-        int count = Integer.parseInt(request.getParameter("count"));
+        String productName = request.getParameter("productName");
 
         try {
-            List<Order> orders = selectService.showOrdersBySumAndCount(sum, count);
-            String query = "List of orders with sum < " + sum + " and count = " + count + ".";
+            List<Order> orders = selectService.showOrdersWithoutProductAndCurrentDate(productName);
+            String query = "List of orders without product '" + productName + "' and date " + LocalDate.now();
             request.setAttribute("query", query);
             if (orders.size() == 0) {
                 request.setAttribute("orders", "");
@@ -36,6 +36,6 @@ public class showOrdersBySumAndCountServlet extends HttpServlet {
         catch (Exception ex){
             request.setAttribute("message", ex.getMessage());
         }
-        request.getRequestDispatcher("/jsp/showOrdersBySumAndCount.jsp").forward(request, response);
+        request.getRequestDispatcher("/jsp/showOrdersWithoutProductAndCurrentDate.jsp").forward(request, response);
     }
 }
